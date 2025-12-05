@@ -33,8 +33,9 @@ class AuthenticatedNotebookApp:
             self.admin_login()
 
     def admin_login(self):
-        st.subheader("Admin sign in (fallback)")
-        username = st.text_input("Admin username", key="admin_username")
+        st.subheader("Admin sign in")
+        username = st.text_input("Admin username", value="admin", key="admin_username")
+
         password = st.text_input(
             "Admin password", type="password", key="admin_password"
         )
@@ -82,7 +83,7 @@ class AuthenticatedNotebookApp:
             st.markdown(f"- [{nb.name}]({url})")
 
     def run(self):
-        st.title("Marimo Notebook Launcher")
+        st.title("Marimo notebook launcher")
         # Always use session state for authentication checks
         if not st.user.is_logged_in and not st.session_state["admin_logged_in"]:
             self.sidebar_auth()

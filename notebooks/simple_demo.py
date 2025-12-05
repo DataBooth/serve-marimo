@@ -7,12 +7,11 @@ app = marimo.App(width="medium")
 @app.cell
 def _():
     import marimo as mo
-
-    return mo
+    return
 
 
 @app.cell
-def _(mo):
+def _():
     import matplotlib.pyplot as plt
 
     x = [1, 2, 3, 4, 5]
@@ -22,15 +21,21 @@ def _(mo):
     ax.plot(x, y)
     ax.set_title("Square Numbers")
     ax.set_xlabel("x")
+
     ax.set_ylabel("y = x^2")
     # Instead of plt.show(), return the figure as a Marimo output:
-    return mo.out(fig)
+    return
 
 
 @app.cell
-def _(mo):
+def _():
     # You can also display markdown or other outputs
-    return mo.md("## This is a demo Marimo notebook!")
+    return
+
+
+@app.cell
+def _():
+    return
 
 
 if __name__ == "__main__":
